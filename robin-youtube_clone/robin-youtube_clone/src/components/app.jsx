@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import YTSearch from 'youtube-api-search'
 import './app.css';
+import VideoList from './VideoList'
 
 //components
 import Searchbar from './SearchBar'
@@ -20,9 +21,10 @@ class Video extends Component {
         currentVideo: null
     }
     
+    // key:'API_KEY' once I have a database
     handleSubmit = (searchBarSearch) => {
         YTSearch({
-            key: '',
+            key: '', 
             term: searchBarSearch},
             (videos) => {
                 this.setState({
@@ -36,6 +38,7 @@ class Video extends Component {
         return (
             <div className="App">
                 <Searchbar handleSearchSubmit={this.handleSubmit}/>
+                <VideoList videos={this.state.videos} />
             </div>
         );
         }
