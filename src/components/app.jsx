@@ -1,39 +1,36 @@
 //libraries
 import React from 'react';
-// import YTSearch from 'youtube-api-search'
-// import VideoList from './VideoList'
 // import "video.css";
 import YoutubeEmbed from "./CurrentVideo";
 
-//components
-// import Searchbar from './SearchBar'
+import Searchbar from './SearchBar'
 
-// function App() {
-//     return (
-//         <div className="App">
+function Look() {
+    return (
+        <div className="Look">
 
-//         </div>
-//     );
-// }
+        </div>
+    );
+}
 
-// class Video extends Component {
+// class video extends Component {
 //     state = {
 //         videos: [],
 //         currentVideo: null
 //     }
     
-    // key:'API_KEY' once I have a database
-    // handleSubmit = (searchBarSearch) => {
-    //     YTSearch({
-    //         key: 'AIzaSyAWKp-G5XJ6SJw1rOgvQVMPo4x4ZVsKip8', 
-    //         term: searchBarSearch},
-    //         (videos) => {
-    //             this.setState({
-    //                 videos: videos,
-    //                 currentVideo: videos[0]
-    //             })
-    //         })
-    //     }
+//     // key:'API_KEY' once I have a database
+//     handleSubmit = (searchBarSearch) => {
+//         YTSearch({
+//             key: '', 
+//             term: searchBarSearch},
+//             (videos) => {
+//                 this.setState({
+//                     videos: videos,
+//                     currentVideo: videos[0]
+//                 })
+//             })
+//     }
 
 
 //     render(){
@@ -59,3 +56,5 @@ export default function App() {
     </div>
   );
 }
+
+
