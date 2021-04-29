@@ -1,15 +1,42 @@
+.search-bar{
+  margin: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 75%;
+}
+
+.video-item img {
+  max-width: 64px;
+}
+
+.video-detail .details{
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: rgb(35, 177, 47);
+}
+
 .video-responsive {
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-    height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
   }
   
-  .video-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
-  
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+   } 

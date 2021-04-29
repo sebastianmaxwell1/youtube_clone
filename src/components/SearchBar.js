@@ -1,22 +1,39 @@
-// import React, {Component} from 'react'
-import React from 'react';
+import React, { Component } from 'react'; //Always need in JSX files
 
-const SearchBar = ({keyword,setKeyword}) => {
-  const BarStyling = {width:"20rem",background:"#F2F1F9", border:"none", padding:"0.5rem"};
-  return (
-    <input 
-     style={BarStyling}
-     key="random1"
-     value={keyword}
-     placeholder={"search videos"}
-     onChange={(e) => setKeyword(e.target.value)}
-    />
-  );
+// Create the HTML to return for the input
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    console.log(props);
+    this.state = { term: '' };
+  }
+
+  onInputChange(term) {
+    this.setState({ term });
+    this.props.onSearchTermChange(term);
+  }
+
+  render() {
+    return (
+      <div className="search-bar" style={{margin: "20px", textAlign: "center"}}>
+        <input
+          value={this.state.term}
+          onChange={event => this.onInputChange(event.target.value)}
+          style = {{ width: "75%" }}
+        />
+      </div>
+    );
+  }
 }
 
+//We need to export to index.js to display
 export default SearchBar;
+//means any file that imports searchBar
+//will only get the searchBar component
 
 
+
+// import React, {Component} from 'react'
 
 // class SearchBar extends Component{
 
