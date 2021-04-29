@@ -3,10 +3,11 @@ import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
+import ReactPlayer from 'react-player'
 
 class App extends React.Component {
     state = {
-        videos: [],
+        videos: [], 
         selectedVideo: null
     }
     handleSubmit = async (termFromSearchBar) => {
@@ -32,16 +33,31 @@ class App extends React.Component {
                 <div className='ui grid'>
                     <div className="ui row">
                         <div className="eleven wide column">
+                             <div>
+                            <ReactPlayer    url="https://www.youtube.com/watch?v=ug50zmP9I7s"/>
+                                         </div>
+                        </div>
                             <VideoDetail video={this.state.selectedVideo}/>
                         </div>
                         <div className="five wide column">
                             <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                        </div>
+                           
                     </div>
                 </div>
             </div>
         )
     }
-}
+}        
+            
+   
+                     
+// export default function Embed() {
+//     return (
+//       <div className="Embed">
+//         <h1>Youtube Embed</h1>
+//         <YoutubeEmbed embedId="opXobSMUvi4" />
+//       </div>
+//     );
+//   }
 
 export default App;
