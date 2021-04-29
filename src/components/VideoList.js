@@ -1,35 +1,12 @@
 import React from 'react';
-// import VideoListCard from './VideoListCard'
+import VideoItem from './VideoItem';
 
-const VideoList = ({videoList=[]}) => {
-  return (
-    <>
-    {videoList.map((data,index) => {
-      if (data) {
-        return (
-          <div key={data.name}>
-            <h1>{data.name}</h1>
-          </div>
-        )
-      }
-      return null
-    }) }
-    </>
-  );
-}
+const VideoList = ({videos , handleVideoSelect}) => {
+    const renderedVideos =  videos.map((video) => {
+        return <VideoItem key={video.id.videoId} video={video} handleVideoSelect={handleVideoSelect} />
+        // console.log(video.id);
+    });
 
+    return <div className='ui relaxed divided list'>{renderedVideos}</div>;
+};
 export default VideoList;
-
-//     const videoList = videos.map((video) => {
-//      return <VideoListCard key={videos.id.videoId} video={video}/>
-//     })
-
-//     return(
-//       <div className='list list group'>
-//         {videoList}
-//     </div>
-//     )
-// }
-
-
-// export default VideoList

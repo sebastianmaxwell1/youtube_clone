@@ -1,42 +1,10 @@
-.search-bar{
-  margin: 20px;
-  text-align: center;
-}
-
-.search-bar input {
-  width: 75%;
-}
-
-.video-item img {
-  max-width: 64px;
-}
-
-.video-detail .details{
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.list-group-item {
+.video-item {
+  display: flex !important;
+  align-items: center !important;
   cursor: pointer;
 }
 
-.list-group-item:hover {
-  background-color: rgb(35, 177, 47);
+.video-item.item img {
+  max-width: 200px;
+  max-height: 250px ;
 }
-
-.video-responsive {
-  overflow: hidden;
-  padding-bottom: 56.25%;
-  position: relative;
-  height: 0;
-  }
-  
-.video-responsive iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-   } 

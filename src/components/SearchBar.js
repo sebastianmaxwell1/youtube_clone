@@ -1,71 +1,32 @@
-import React, { Component } from 'react'; //Always need in JSX files
+import React from 'react';
 
-// Create the HTML to return for the input
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state = { term: '' };
-  }
-
-  onInputChange(term) {
-    this.setState({ term });
-    this.props.onSearchTermChange(term);
-  }
-
-  render() {
-    return (
-      <div className="search-bar" style={{margin: "20px", textAlign: "center"}}>
-        <input
-          value={this.state.term}
-          onChange={event => this.onInputChange(event.target.value)}
-          style = {{ width: "75%" }}
-        />
-      </div>
-    );
-  }
-}
-
-//We need to export to index.js to display
-export default SearchBar;
-//means any file that imports searchBar
-//will only get the searchBar component
-
-
-
-// import React, {Component} from 'react'
-
-// class SearchBar extends Component{
-
-//     constructor(props){
-//     super(props);
-//     this.state = {
-//         search: ''
-//     }
-// }
+class Searchbar extends React.Component {
+    handleChange = (event) => {
+        this.setState({
+            term: event.target.value
+        });
     
-// handleChange = (event) => {
-//     this.setState({
-//         search: event.target.value
-//     })
-// }
+    };
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.handleFormSubmit(this.state.term);
+    }
 
-// handleSubmit = (event) => {
-//     event.preventDefault()
-//     this.props.handleSearchSubmit(this.state.search)
-// }
-
-//      render() {
-//         return (
-//             <div className='Search'>
-//                 <form onSubmit={this.handleSubmit}>
-//                     <input id='searchbar' type='text' name='search'
-//                     placeholder='YouTube Clone Group Project...'
-//                     value={this.state.search} onChange={this.handleChange}/>
-//                     <input type='submit' value='Search'/>
-//                 </form>
-//             </div>
-//         )}
-
-// }
-// export default SearchBar
+    render() {
+        
+        return (
+            <>
+            <h2  style={{textAlign:"center"}}><img style={{width:'200px', height:'100px',justifyContent:'center'}} src='https://www.thatitguy.net/wp-content/uploads/2018/08/1280px-Logo_of_YouTube_2015-2017.svg.png' alt="youtube logo"></img></h2>
+            <div className='search-bar ui segment'>
+                <form onSubmit={this.handleSubmit} className='ui form'>
+                    <div className='field'>
+                        <label htmlFor="video-search">Video Search</label>
+                        <input onChange={this.handleChange} name='video-search' type="text" placeholder="Search.."/>
+                    </div>
+                </form>
+            </div>
+            </>
+        )
+    }
+}
+export default Searchbar;
