@@ -4,6 +4,7 @@ import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
 import ReactPlayer from 'react-player'
+//import Comments from './Comments/Comments';
 
 class App extends React.Component {
     state = {
@@ -36,6 +37,7 @@ class App extends React.Component {
                              <div>
                             <ReactPlayer    url="https://www.youtube.com/watch?v=ug50zmP9I7s"/>
                                          </div>
+                                                  
                         </div>
                             <VideoDetail video={this.state.selectedVideo}/>
                         </div>
