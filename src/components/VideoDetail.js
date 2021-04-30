@@ -1,21 +1,49 @@
 import React from "react";
 
+const VideoDetail = ({video}) => {
+  if (!video) {
+      return <div>Embedded Video Container:</div>;
+  }
+  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+  return (
+      <div>
+          <div className='ui embed'>
+              <iframe src={videoSrc} allowFullScreen title='YouTube Clone Video player'/>
+          </div>
+          <div className='ui segment'>
+              <h4 className='ui header'>{video.snippet.title}</h4>
+              <p>{video.snippet.description}</p>
+          </div>
+      </div>
+  )
+}
 
-const VideoDetail = ({video, handleVideoSelect}) => {
+export default VideoDetail;
+
+
+
+
+
+
+
+
+
+
+/* const VideoDetail = ({video, handleVideoSelect}) => {
     return (
          <div onClick={ () => handleVideoSelect(video)} className=' video-item item'>
         <img className='ui image' src={video.snippet.thumbnails.medium.url} alt={video.snippet.description}/>
-        <div className='content'>
+         className='content'
         </div>
-    </div>
-);
-}
 
-  const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
+    )
+
+    }   
+const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
   console.log(typeof video);
-  return (
-    <div>
-      <div className="ui embed">
+    return (
+      <div>
+        <div className="ui embed">
         <iframe src={videoSrc} allowFullScreen title="Video player" />
       </div>
       <div className="ui segment">
@@ -24,6 +52,4 @@ const VideoDetail = ({video, handleVideoSelect}) => {
       </div>
     </div>
   );
-};
-
-export default VideoDetail;
+*/ 

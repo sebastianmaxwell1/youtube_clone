@@ -12,6 +12,7 @@ class Searchbar extends React.Component {
         this.props.handleFormSubmit(this.state.term);
     }
 
+    
     render() {
         
         return (
@@ -29,4 +30,6 @@ class Searchbar extends React.Component {
         )
     }
 }
+
 export default Searchbar;
+
