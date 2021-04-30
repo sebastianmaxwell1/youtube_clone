@@ -2,9 +2,9 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+import Comments from './Comments/Comments';
 import ReactPlayer from 'react-player'
-//import Comments from './Comments/Comments';
+
 
 class App extends React.Component {
     state = {
@@ -60,6 +60,7 @@ class App extends React.Component {
                                 <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
                             
                             </div>
+                            <Comments />
                         </div>
                     </div>
                 </div>
@@ -70,13 +71,6 @@ class App extends React.Component {
             
    
                      
-// export default function Embed() {
-//     return (
-//       <div className="Embed">
-//         <h1>Youtube Embed</h1>
-//         <YoutubeEmbed embedId="opXobSMUvi4" />
-//       </div>
-//     );
-//   }
+
 
 export default App;

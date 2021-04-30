@@ -1,13 +1,40 @@
-import React from 'react';
-import {CommentsHeader} from "./CommentsHeader/CommentsHeader";
+import React, { useState } from 'react'
+//import {Button, Input} from 'react-bootstrap/Button';
+const  {TextArea}  = Input;
 
-export class Comments extends React.Component {
-  render() {
+
+function Comments() {
+
+    const [Comment, setComment] = useState("")
+
+    const handleChange = (e) => {
+        setComment(e.currentTarger.value)
+
+    }
+    
     return(
-      <div>
-        <CommentsHeader amountComments={this.props.amountComments}/>
-      </div>
-    );
-  }
+        <div>
+            <br />
+            <p> replies</p>
+            <hr />
+
+            {/* Comment Lists */}
+
+            {/* Root Comment Form */}
+            <form style={{ display:'flex' }} onSubmit>
+                <TextArea
+                    style={{ width: '100%', borderRadius: '5px'}}
+                    onChange={handleChange}
+                    value={Comment}
+                    placeholder="write some comments"
+                    />
+                    <br />
+                   
+            </form>
+
+
+        </div>
+    )
 }
-export default Comments;
+
+export default Comments
