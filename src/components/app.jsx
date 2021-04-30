@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
-import VideoDetail from './VideoDetail';
+// import VideoDetail from './VideoDetail';
 import ReactPlayer from 'react-player'
 //import Comments from './Comments/Comments';
 
