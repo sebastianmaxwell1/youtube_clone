@@ -9,7 +9,8 @@ import ReactPlayer from 'react-player'
 class App extends React.Component {
     state = {
         videos: [], 
-        selectedVideo: null
+        selectedVideo: {},
+        isVideoSelected: false
     }
     handleSubmit = async (termFromSearchBar) => {
         const response = await youtube.get('/search', {
@@ -21,13 +22,29 @@ class App extends React.Component {
         this.setState({
             videos: response.data.items
         })
-        console.log("this is resp",response);
+        console.log("this is resp",response.data.items);
     };
     handleVideoSelect = (video) => {
-        this.setState({selectedVideo: video})
+        this.setState({
+            selectedVideo: video,
+            isVideoSelected: true
+        })
+    }
+
+    buildVideoURL(){
+        if (this.state.videos.length === 0){
+            return "https://www.youtube.com/watch?v=ug50zmP9I7s";
+        }
+        else if(this.state.isVideoSelected === true){
+            return `https://www.youtube.com/watch?v=${this.state.selectedVideo.id.videoId}`
+        }
+        else{
+            return `https://www.youtube.com/watch?v=${this.state.videos[0].id.videoId}`
+        }
     }
 
     render() {
+        console.log("selected video", this.state.selectedVideo);
         return (
             <div className='ui container' style={{marginTop: '1em'}}>
                 <SearchBar handleFormSubmit={this.handleSubmit}/>
@@ -35,15 +52,15 @@ class App extends React.Component {
                     <div className="ui row">
                         <div className="eleven wide column">
                              <div>
-                            <ReactPlayer    url="https://www.youtube.com/watch?v=ug50zmP9I7s"/>
-                                         </div>
+                                <ReactPlayer    url={this.buildVideoURL()}/>
+                            </div>
                                                   
+                            
+                            <div className="five wide column">
+                                <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+                            
+                            </div>
                         </div>
-                            <VideoDetail video={this.state.selectedVideo}/>
-                        </div>
-                        <div className="five wide column">
-                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                           
                     </div>
                 </div>
             </div>
