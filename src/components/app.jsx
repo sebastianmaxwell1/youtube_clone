@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
-import Comments from './Comments/Comments';
+//import Comments from './Comments/Comments';
 import ReactPlayer from 'react-player'
 
 
@@ -60,7 +60,7 @@ class App extends React.Component {
                                 <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
                             
                             </div>
-                            <Comments />
+                            
                         </div>
                     </div>
                 </div>
