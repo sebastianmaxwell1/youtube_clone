@@ -3,7 +3,8 @@ import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
 //import Comments from './Comments/Comments';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+//import CommentBox from './Comments/Comment.js';
 
 
 class App extends React.Component {
@@ -59,7 +60,8 @@ class App extends React.Component {
                             <div className="five wide column">
                                 <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
                             
-                            </div>
+                            </div> 
+
                             
                         </div>
                     </div>
