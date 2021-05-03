@@ -2,9 +2,10 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
 import VideoList from './VideoList';
-// import VideoDetail from './VideoDetail';
-import ReactPlayer from 'react-player'
-//import Comments from './Comments/Comments';
+import ReactPlayer from 'react-player';
+import Header from './Header';
+import VideoDetail from './VideoDetail';
+import './app.css';
 
 class App extends React.Component {
     state = {
@@ -33,7 +34,7 @@ class App extends React.Component {
 
     buildVideoURL(){
         if (this.state.videos.length === 0){
-            return "https://www.youtube.com/watch?v=ug50zmP9I7s";
+            return "https://www.youtube.com/watch?v=ZvImJz6hRl0";
         }
         else if(this.state.isVideoSelected === true){
             return `https://www.youtube.com/watch?v=${this.state.selectedVideo.id.videoId}`
@@ -46,22 +47,28 @@ class App extends React.Component {
     render() {
         console.log("selected video", this.state.selectedVideo);
         return (
-            <div className='ui container' style={{marginTop: '1em'}}>
-                <SearchBar handleFormSubmit={this.handleSubmit}/>
-                <div className='ui grid'>
-                    <div className="ui row">
-                        <div className="eleven wide column">
-                             <div>
-                                <ReactPlayer    url={this.buildVideoURL()}/>
-                            </div>
-                                                  
-                            
-                            <div className="five wide column">
-                                <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
-                            
+            <div className='ui container' >
+                
+                <Header style={{paddingLeft: '15px'}}/>
+                <SearchBar handleFormSubmit={this.handleSubmit} style={{marginRight: '50%'}}/>
+                <div>
+
+                <ReactPlayer    url={this.buildVideoURL()}/>
+                </div>
+            <div className='ui grid'>
+                <div className="ui row">
+                    <div className="eleven wide column">
+                        <VideoDetail />
+                        </div>  
+                    <div className="five wide column">
+                        <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+                        <div style={{backgroundImage: 'url(${background})'}}>
+                            <div style={{backgroundImage: 'url(${background.jfif})' }}>
+
                             </div>
                         </div>
-                    </div>
+                         </div>
+                     </div>
                 </div>
             </div>
         )
@@ -70,13 +77,6 @@ class App extends React.Component {
             
    
                      
-// export default function Embed() {
-//     return (
-//       <div className="Embed">
-//         <h1>Youtube Embed</h1>
-//         <YoutubeEmbed embedId="opXobSMUvi4" />
-//       </div>
-//     );
-//   }
+
 
 export default App;
